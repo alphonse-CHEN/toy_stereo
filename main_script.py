@@ -105,10 +105,10 @@ right_image = read_img(os.path.join(right_capture_undistort_folder, '1.png'))
 
 left_warped = cv2.warpPerspective(src=left_image, M=H_left, dsize=(2592, 2048))
 write_img(fn=os.path.join(calibration_data_folder, 'rectified_left.png'), img=left_warped)
-left_warped_res = cv2.resize(left_warped, None, fx=0.5, fy=0.4, interpolation=cv2.INTER_CUBIC)
+left_warped_res = cv2.resize(left_warped, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_CUBIC)
 right_warped = cv2.warpPerspective(src=right_image, M=H_right, dsize=(2592, 2048))
 write_img(fn=os.path.join(calibration_data_folder, 'rectified_right.png'), img=right_warped)
-right_warped_res = cv2.resize(right_warped, None, fx=0.5, fy=0.4, interpolation=cv2.INTER_CUBIC)
+right_warped_res = cv2.resize(right_warped, None, fx=0.25, fy=0.25, interpolation=cv2.INTER_CUBIC)
 
 # ------ calculate disparity ------
 stereo = cv2.StereoSGBM_create(minDisparity=-64, numDisparities=128, blockSize=15, P1=8, P2=256)
